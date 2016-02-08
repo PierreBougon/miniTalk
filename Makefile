@@ -5,7 +5,7 @@
 ## Login   <bougon_p@epitech.net>
 ## 
 ## Started on  Mon Feb  1 18:33:22 2016 bougon_p
-## Last update Sun Feb  7 05:21:29 2016 bougon_p
+## Last update Mon Feb  8 22:34:16 2016 bougon_p
 ##
 
 # USEFUL VARIABLES
@@ -52,9 +52,9 @@ LDFLAGS =	-lmy -L$(LIBPATH)
 
 # PROJECT VARIABLES
 
-CLIENT  =	clientbin
+CLIENT  =	client/client
 
-SERVER	=	serverbin
+SERVER	=	server/server
 
 IFLAG	=	-Iinclude/
 
@@ -66,25 +66,23 @@ CC      =	gcc $(CFLAGS)
 
 # PROJECT RULES
 
-$(SERVER)	:	$(OBJSERVER) $(CLIENT)
+$(SERVER)	:	$(CLIENT) $(OBJSERVER)
 			@$(ECHO) "$(GREEN)\n> Compiling server\t >>>>>>>>>>>>>>> \t DONE\n$(WHITE)"
 			@$(CC) -o $(SERVER) $(OBJSERVER) $(LDFLAGS)
-			@cp $(SERVER) $(DIR_SERVER)/server
 
 $(CLIENT)	: 	$(OBJCLIENT)
 			@$(ECHO) "$(GREEN)\n> Compiling client\t >>>>>>>>>>>>>>> \t DONE\n$(WHITE)"
 			@$(CC) -o $(CLIENT) $(OBJCLIENT) $(LDFLAGS)
-			@cp $(CLIENT) $(DIR_CLIENT)/client
 
 
-all		:	$(SERVER) 
+all		:	$(SERVER)
 
 clean		:
 			@$(RM) $(OBJCLIENT) $(OBJSERVER)
 			@$(ECHO) "$(GREEN)\n> Cleaning repository\t >>>>>>>>>>>>>>> \t DONE\n$(WHITE)"
 
 fclean		: 	clean
-			@$(RM) $(CLIENT) $(SERVER) $(DIR_CLIENT)/client $(DIR_SERVER)/server
+			@$(RM) $(CLIENT) $(SERVER)
 			@$(ECHO) "$(GREEN)\n> Cleaning exec\t\t >>>>>>>>>>>>>>> \t DONE\n$(WHITE)"
 
 re		:	fclean all
