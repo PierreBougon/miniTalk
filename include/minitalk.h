@@ -5,12 +5,14 @@
 ** Login   <bougon_p@epitech.net>
 **
 ** Started on  Mon Feb  1 21:11:40 2016 bougon_p
-** Last update Sun Feb  7 05:21:53 2016 bougon_p
+** Last update Mon Feb  8 23:01:57 2016 bougon_p
 */
 
 #ifndef MINITALK_H_
 # define MINITALK_H_
 
+# define _POSIX_SOURCE
+# define _BSD_SOURCE
 
 # include <stdio.h>
 # include <signal.h>
@@ -59,11 +61,5 @@ char	*my_realloc(char *, char);
 t_recep	fill_union(t_recep);
 char	*setnbr(int);
 int	my_pow(int, int);
-
-/*
-** Others functions
-*/
-int	kill(pid_t, int);
-int	usleep(int);
 
 #endif /* !MINITALK_H_ */
